@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>K-POP Kids Site</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: linear-gradient(135deg, #ff4da6, #7b2ff7);
+  color: white;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 20px;
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px #ff4da6;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+nav button {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid #ff4da6;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+nav button:hover {
+  background: #ff4da6;
+}
+
+/* PAGE */
+.page {
+  display: none;
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.active {
+  display: block;
+}
+
+/* VIDEO CARD */
+.video-card {
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 25px;
+  box-shadow: 0 0 25px rgba(255,0,150,0.4);
+}
+
+/* VIDEO RATIO */
+.video {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.video iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+
+/* TITLE */
+h2 {
+  text-align: center;
+  color: #ffd700;
+  text-shadow: 0 0 10px gold;
+}
+
+/* GALLERY */
+.gallery {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery img {
+  width: 30%;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #ff4da6;
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* GLOW EFFECT */
+.glow {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  text-shadow: 0 0 10px #fff, 0 0 20px #ff4da6;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  ✨ Pink Star TV ✨
+</header>
+
+<nav>
+  <button onclick="showPage('home')">Home</button>
+  <button onclick="showPage('dance')">Dance</button>
+  <button onclick="showPage('gallery')">Gallery</button>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="page active">
+  <h2>⭐ Featured ⭐</h2>
+
+  <div class="video-card">
+    <div class="video">
+      <iframe src="https://www.youtube.com/embed/JGwWNGJdvx8" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- DANCE -->
+<div id="dance" class="page">
+  <h2>💃 Dance Time 💃</h2>
+
+  <div class="video-card">
+    <div class="video">
+      <iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk"></iframe>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <div class="video">
+      <iframe src="https://www.youtube.com/embed/RgKAFK5djSk"></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div id="gallery" class="page">
+  <h2>🌟 K-POP Gallery 🌟</h2>
+
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f">
+    <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b">
+    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91">
+  </div>
+</div>
+
+<script>
+function showPage(pageId) {
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(p => p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+}
+</script>
+
+</body>
+</html>
