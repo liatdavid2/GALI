@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ציירי לבד</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>ציירי לבד 🎨</h1>
+
+    <div class="tools">
+      <button onclick="changeColor('black')">שחור</button>
+      <button onclick="changeColor('red')">אדום</button>
+      <button onclick="changeColor('blue')">כחול</button>
+      <button onclick="changeColor('green')">ירוק</button>
+      <button onclick="setMode('draw')">ציור</button>
+      <button onclick="setMode('star')">⭐ כוכב</button>
+      <button onclick="setMode('heart')">❤️ לב</button>
+      <button onclick="clearCanvas()">נקה</button>
+    </div>
+
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

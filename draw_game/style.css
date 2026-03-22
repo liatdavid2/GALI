@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  text-align: center;
+  background: linear-gradient(to bottom, #ffe4f3, #dff7ff);
+}
+
+.container {
+  padding: 20px;
+}
+
+h1 {
+  color: #ff4da6;
+}
+
+.tools {
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #ffd54f;
+}
+
+canvas {
+  border: 2px solid #333;
+  border-radius: 10px;
+  background: white;
+}
