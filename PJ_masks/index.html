@@ -108,6 +108,7 @@ body {
 
     <div class="video-card">
       <iframe id="vid1" src="https://www.youtube.com/embed/YhYBe4WMEMU?mute=1"></iframe>
+      <div class="video-title">כותרת וידאו</div>
       <div class="video-actions">
         <div class="small-btn" onclick="toggleVideo('vid1','YhYBe4WMEMU', this)">▶</div>
         <div class="small-btn" onclick="goFullscreenIframe('vid1')">⛶</div>
@@ -116,6 +117,7 @@ body {
 
     <div class="video-card">
       <iframe id="vid2" src="https://www.youtube.com/embed/b4W6Tgjha8Q?mute=1"></iframe>
+      <div class="video-title">כותרת וידאו</div>
       <div class="video-actions">
         <div class="small-btn" onclick="toggleVideo('vid2','b4W6Tgjha8Q', this)">▶</div>
         <div class="small-btn" onclick="goFullscreenIframe('vid2')">⛶</div>
@@ -124,6 +126,7 @@ body {
 
     <div class="video-card">
       <iframe id="vid3" src="https://www.youtube.com/embed/GDe2DBYEX3I?mute=1"></iframe>
+      <div class="video-title">כותרת וידאו</div>
       <div class="video-actions">
         <div class="small-btn" onclick="toggleVideo('vid3','GDe2DBYEX3I', this)">▶</div>
         <div class="small-btn" onclick="goFullscreenIframe('vid3')">⛶</div>
@@ -132,6 +135,7 @@ body {
 
     <div class="video-card">
       <iframe id="vid4" src="https://www.youtube.com/embed/obkKy8FeJ6Y?mute=1"></iframe>
+      <div class="video-title">כותרת וידאו</div>
       <div class="video-actions">
         <div class="small-btn" onclick="toggleVideo('vid4','obkKy8FeJ6Y', this)">▶</div>
         <div class="small-btn" onclick="goFullscreenIframe('vid4')">⛶</div>
@@ -145,23 +149,45 @@ body {
 let currentPlaying = null;
 
 function stopAll() {
-  document.querySelectorAll('iframe').forEach(f => f.src = f.src);
+  document.querySelectorAll('iframe').forEach(f => {
+    // reset without autoplay so it really stops
+    const url = new URL(f.src);
+    url.searchParams.set('autoplay', '0');
+    url.searchParams.set('mute', '1');
+    f.src = url.toString();
+  });
 }
 
 function resetButtons() {
   document.querySelectorAll('.small-btn, .btn').forEach(btn => {
     if (btn.innerText.includes('⛶')) return;
-    btn.innerText = btn.innerText.includes('הפעל') ? '▶ הפעל' : '▶';
+    btn.innerText = btn.classList.contains('btn') ? '▶ הפעל' : '▶';
   });
+});
 }
 
 function toggleVideo(id, videoId, btn) {
+  // if clicking same video → stop
   if (currentPlaying === id) {
     stopAll();
+    resetButtons();
     currentPlaying = null;
-    btn.innerText = btn.innerText.includes('הפעל') ? '▶ הפעל' : '▶';
     return;
   }
+
+  // stop all others
+  stopAll();
+  resetButtons();
+
+  // play selected with sound
+  document.getElementById(id).src =
+    `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0`;
+
+  currentPlaying = id;
+
+  // update button
+  btn.innerText = btn.classList.contains('btn') ? '⏸ הפסק' : '⏸';
+}
 
   stopAll();
   resetButtons();
