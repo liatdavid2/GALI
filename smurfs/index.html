@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>משחק המתנה של קונדסון</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="title">משחק המתנה של קונדסון</div>
+    <div class="stats">
+      <div>נקודות: <span id="score">0</span></div>
+      <div>לבבות: <span id="lives">3</span></div>
+      <div>שלב: <span id="level">1</span></div>
+    </div>
+  </div>
+
+  <div class="timer-bar-wrap">
+    <div class="timer-bar" id="timerBar"></div>
+  </div>
+
+  <div class="game-area" id="gameArea"></div>
+
+  <!-- Start -->
+  <div class="start-screen" id="startScreen">
+    <div class="panel">
+      <h1>ברוכה הבאה למשחק</h1>
+      <p>לחצי מהר על המתנה לפני שהיא מתפוצצת</p>
+      <button id="startBtn">התחילי</button>
+    </div>
+  </div>
+
+  <!-- Game Over -->
+  <div class="game-over hidden" id="gameOverScreen">
+    <div class="panel">
+      <h2>נגמר המשחק</h2>
+      <p>נקודות: <span id="finalScore">0</span></p>
+      <button id="restartBtn">שחקי שוב</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
