@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>יום הולדת לדיאנה 🎂</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- מסך פתיחה -->
+<div id="startScreen" class="screen">
+  <h1>🎉 יום הולדת לדיאנה 🎉</h1>
+  <img src="images/diana.png" class="diana-big">
+  <button id="startBtn">התחילי לשחק</button>
+</div>
+
+<!-- מסך משחק -->
+<div id="gameScreen" class="screen hidden">
+  <div class="top-bar">
+    💖 <span id="score">0</span>
+  </div>
+
+  <div class="diana-bg"></div>
+
+  <div id="itemsContainer"></div>
+</div>
+
+<!-- מסך סיום -->
+<div id="endScreen" class="screen hidden">
+  <h1>🎂 כל הכבוד! 🎂</h1>
+  <p>עשית מסיבת יום הולדת לדיאנה!</p>
+  <button onclick="restartGame()">שחקי שוב</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
